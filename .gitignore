@@ -1,0 +1,8 @@
+node_modules/
+dist/
+*.tgz
+.next/
+examples/next-site/.cache/
+examples/next-site/.lab.json
+examples/next-site/.static/
+examples/next-site/.panel-root/

@@ -1,0 +1,84 @@
+{
+  "name": "@xoisr/html-cache",
+  "version": "1.0.2",
+  "description": "High-performance, hook-driven HTML full-page cache engine for self-hosted Next.js and Node.js applications with Nginx. Serves pre-rendered static HTML and gzip directly on HIT with sub-millisecond TTFB, proxies to Node on MISS. Features atomic cutover, monotonic revision floors, query allowlists, and background maintenance.",
+  "type": "module",
+  "license": "ISC",
+  "author": "truongthinh3902 <truongthinh3902@gmail.com>",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/xoisr3/html-cache.git"
+  },
+  "bugs": {
+    "url": "https://github.com/xoisr3/html-cache/issues"
+  },
+  "homepage": "https://github.com/xoisr3/html-cache#readme",
+  "engines": {
+    "node": ">=22"
+  },
+  "exports": {
+    ".": {
+      "types": "./dist/index.d.ts",
+      "import": "./dist/index.js"
+    }
+  },
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "bin": {
+    "html-cache-gc": "dist/cron/cli.js",
+    "xoisr-html-cache-gc": "dist/cron/cli.js"
+  },
+  "files": [
+    "dist",
+    "README.md",
+    "api.md",
+    "guide.md",
+    "LICENSE"
+  ],
+  "publishConfig": {
+    "access": "public"
+  },
+  "keywords": [
+    "html-cache",
+    "full-page-cache",
+    "page-cache",
+    "nginx",
+    "nextjs",
+    "nextjs-cache",
+    "app-router",
+    "cache",
+    "caching",
+    "reverse-proxy",
+    "ssg",
+    "isr",
+    "incremental-static-regeneration",
+    "sub-millisecond-ttfb",
+    "high-performance",
+    "self-hosted",
+    "gzip_static",
+    "web-cache",
+    "atomic-cutover",
+    "zero-downtime",
+    "headless-cache",
+    "payloadcms",
+    "vps",
+    "hetzner",
+    "aws-ec2",
+    "static-html-cache"
+  ],
+  "scripts": {
+    "build": "tsc -p tsconfig.json && node scripts/rewrite-declarations.mjs",
+    "prepare": "npm run build",
+    "prepublishOnly": "npm test",
+    "test": "node --experimental-strip-types --test tests/*.test.ts",
+    "lab": "node --experimental-strip-types examples/next-site/lab.ts",
+    "gc": "node --experimental-strip-types src/cron/cli.ts"
+  },
+  "optionalDependencies": {
+    "node-cron": "^4.2.1"
+  },
+  "devDependencies": {
+    "@types/node": "^22.19.0",
+    "typescript": "^5.9.3"
+  }
+}
